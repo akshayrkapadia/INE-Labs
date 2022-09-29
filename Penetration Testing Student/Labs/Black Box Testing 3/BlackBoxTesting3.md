@@ -1,0 +1,6 @@
+# BLACK BOX TESTING 3
+
+## GIVEN   
+**MY IP ADDRESS**: 
+
+## PROCEDURE
