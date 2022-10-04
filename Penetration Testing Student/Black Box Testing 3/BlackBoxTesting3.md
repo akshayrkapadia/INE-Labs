@@ -250,7 +250,7 @@ sudo -l
 ```
 
 robert can run ls with sudo<br>
-LD_PRELOAD var is also set
+LD_PRELOAD var is also set which will run a shared lib before any other libs
 
 ![3.8](./imgs/3.8.png)
 
@@ -273,7 +273,7 @@ system("/bin/sh");
 ```
 
 __attribute__((constructor)) will make exploit() run before all other code<br>
-unsetenv will reset the LD_PRELOAD env var<br>
+unsetenv will delete the LD_PRELOAD env var<br>
 setgid and setuid will be set to 0 which is root<br>
 
 Create shared library file calld shell.so
