@@ -2,7 +2,7 @@
 
 ### Hydra
 
--l USERNAME
+-l USERNAME<br>
 -P PASSWORD_LIST
 ```
 hydra -l "student" -P /usr/share/wordlists/rockyou.txt.gz ssh://demo.ine.local

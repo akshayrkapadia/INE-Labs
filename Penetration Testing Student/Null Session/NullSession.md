@@ -50,8 +50,8 @@ enum4linux -A demo.ine.local
 
 or
 
--S shares
--U users
+-S shares<br>
+-U users<br>
 -P password policy
 ```
 enum4linux -S demo.ine.local
