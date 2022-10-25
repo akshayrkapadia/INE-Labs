@@ -39,7 +39,7 @@ email = jeremy@dummycorp.com<br>
 **password** = diamonds<br>
 **username** = jeremy<br>
 
-**GIT UR**L: http://online-calc.com/projects/online-calc
+**GIT URL**: http://online-calc.com/projects/online-calc
 
 ### DISABLE INPUT VALIDATION
 
